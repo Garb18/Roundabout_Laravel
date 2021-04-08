@@ -37,8 +37,7 @@
       <div class="my-4 subtitle-1 white--text">$ • Italian, Cafe</div>
 
       <div class="white--text">
-        Small plates, salads & sandwiches - an intimate setting with 12 indoor
-        seats plus patio seating.
+        {{ restaurants.description }}
       </div>
     </v-card-text>
 
@@ -100,6 +99,7 @@ export default {
     loading: false,
     selection: 1,
     show: false,
+    restaurants: {},
   }),
   methods: {
     reserve() {
@@ -107,6 +107,11 @@ export default {
 
       setTimeout(() => (this.loading = false), 1000);
     },
+  },
+  mounted() {
+    axios.get("/api/restaurants").then((response) => {
+      this.restaurants = response.data.data;
+    });
   },
 };
 </script>

@@ -2495,14 +2495,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RestaurantCard",
   data: function data() {
     return {
       loading: false,
       selection: 1,
-      show: false
+      show: false,
+      restaurants: {}
     };
   },
   methods: {
@@ -2514,6 +2514,13 @@ __webpack_require__.r(__webpack_exports__);
         return _this.loading = false;
       }, 1000);
     }
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
+    axios.get("/api/restaurants").then(function (response) {
+      _this2.restaurants = response.data.data;
+    });
   }
 });
 
@@ -21204,14 +21211,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-bottom-navigation",
-    {
-      attrs: {
-        value: _vm.value,
-        color: "primary",
-        grow: "",
-        "hide-on-scroll": ""
-      }
-    },
+    { attrs: { color: _vm.primary, grow: "", "hide-on-scroll": "" } },
     [
       _c(
         "v-btn",
@@ -21667,9 +21667,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "white--text" }, [
-            _vm._v(
-              "\n      Small plates, salads & sandwiches - an intimate setting with 12 indoor\n      seats plus patio seating.\n    "
-            )
+            _vm._v("\n      " + _vm._s(_vm.restaurants.description) + "\n    ")
           ])
         ],
         1

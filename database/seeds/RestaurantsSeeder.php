@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ProductsSeeder extends Seeder
+class RestaurantsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,53 +11,47 @@ class ProductsSeeder extends Seeder
      */
     public function run()
     {
-        $products = [
+        $restaurants = [
             [
                 'name' => 'Item One',
                 'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!',
-                'price' => 24.99,
                 'photo' => 'http://placehold.it/700x400',
 
             ],
             [
                 'name' => 'Item Two',
                 'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.',
-                'price' => 24.99,
                 'photo' => 'http://placehold.it/700x400',
 
             ],
             [
                 'name' => 'Item Three',
                 'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!',
-                'price' => 24.99,
                 'photo' => 'http://placehold.it/700x400',
 
             ],
             [
                 'name' => 'Item Four',
                 'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.',
-                'price' => 24.99,
                 'photo' => 'http://placehold.it/700x400',
 
             ],
             [
                 'name' => 'Item Five',
                 'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!',
-                'price' => 24.99,
                 'photo' => 'http://placehold.it/700x400',
 
             ],
             [
                 'name' => 'Item Six',
                 'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.',
-                'price' => 24.99,
                 'photo' => 'http://placehold.it/700x400',
 
             ],
         ];
 
-        foreach ($products as $product) {
-            \App\Product::create($product);
+        foreach ($restaurants as $restaurant) {
+            \App\Restaurant::create($restaurant);
         }
     }
 }
